@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
-import './TextAnalysis.css'
+import './TextAnalysis.css';
+import axios from 'axios';
 
 const TextAnalysisComponent = () => {
   const [text, setText] = useState('');
+  const [sentimentResult, setSentimentResult] = useState('');
 
-  const handleAnalyse = () => {
-    console.log('Analyzing text:', text);
+  const handleAnalyse = async() => {
+    axios.post('http://localhost:5000/getSentiment', { data: text })
+      .then(response => {
+        console.log(response.data.message);
+        setSentimentResult(response.data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+      setText('');
   };
 
   return (
+    <>
     <div className="container">
       <textarea
         className="textarea"
@@ -18,6 +29,13 @@ const TextAnalysisComponent = () => {
       />
       <button className="button" onClick={handleAnalyse}>Analyse</button>
     </div>
+    <>
+    {sentimentResult && 
+      <div className={`result ${sentimentResult.toLowerCase()}`}>
+        Sentiment: {sentimentResult}
+      </div>}
+    </>
+    </>
   );
 };
 

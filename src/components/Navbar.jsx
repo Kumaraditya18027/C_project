@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="left">
         <div className="brand">Brand</div>
         <ul className="menu">
-          <li><a href="#">Home</a></li>
+          <li><Link to="/" >Home</Link></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>

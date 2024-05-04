@@ -15,9 +15,11 @@
     height: 200px;
     resize: vertical;
     background-color: black;
+    border:3px;
     border-style: solid;
     border-radius: 7px;
     border-color: red;
+    color: white;
   }
   ::placeholder{
     /* text-align: center; */
@@ -40,4 +42,30 @@
   .button:hover {
     background-color: green;
   }
+  .result.positive{
+    display: inline-block;
+    position: relative;
+    color: azure;
+    font-size: large;
+    margin-left: 43vw;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style: solid;
+    border-radius: 5px;
+    background-color: green;
+  }
   
+  .result.negative{
+    display: inline-block;
+    position: relative;
+    color: azure;
+    font-size: large;
+    margin-left: 43vw;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style: solid;
+    border-radius: 5px;
+    background-color: red;
+  }
